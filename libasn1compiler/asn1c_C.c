@@ -1350,9 +1350,9 @@ asn1c_lang_C_type_SIMPLE_TYPE(arg_t *arg) {
 		OUT("\n");
 		DEBUG("expr constraint checking code for %s", p);
 		if(asn1c_emit_constraint_checking_code(arg) == 1) {
-			OUT("return td->encoding_constraints.general_constraints"
-				"(td, sptr, ctfailcb, app_key);\n");
-		}
+			OUT("return asn_DEF_%s.encoding_constraints.general_constraints"
+				"(td, sptr, ctfailcb, app_key);\n", c_name(arg).type.asn_name);
+        }
 		INDENT(-1);
 		OUT("}\n");
 		OUT("\n");
